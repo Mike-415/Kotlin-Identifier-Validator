@@ -3,10 +3,10 @@
  */
 
 fun isValidIdentifier(s: String): Boolean {
-    fun hasUnderscoreOrAlphabets(ch: Char) = ch == '_' || ch in 'a'..'z' || ch in 'A'..'Z'
+    fun hasUnderscoreOrAlphabets(ch: Char) = ch == '_' || ch.isLetter()
     if (s.isEmpty() || !hasUnderscoreOrAlphabets(s[0])) return false
     for (ch in s) {
-        if (!hasUnderscoreOrAlphabets(ch) || ch in '0'..'9') {
+        if (!(hasUnderscoreOrAlphabets(ch) || ch.isDigit())) {
             return false
         }
     }
